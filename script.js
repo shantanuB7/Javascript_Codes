@@ -68,13 +68,11 @@ console.log(totSal(salaries))
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //3. Create a function multiplyNumeric(obj) that multiplies all numeric properties of objects by 2.
-
-
 /*
 function multiplyNumeric(menu) {
     
     for(var prop in menu) {
-       if(typeof menu[prop] === 'number') {
+       if(!isNaN(menu[prop])) {
             
             menu[prop] = menu[prop]*2
        }
@@ -91,7 +89,6 @@ let menu = {
 }
 
 multiplyNumeric(menu)
-
 */
 
 
@@ -103,8 +100,8 @@ multiplyNumeric(menu)
     user = {
         name : "John",
         money : 1000,
-        toString() {
-            return this.name
+        [Symbol.toPrimitive]() {
+            return `{name : "${this.name}"}`
         },
         
         valueOf() {
@@ -112,7 +109,8 @@ multiplyNumeric(menu)
         }
     }
 
-alert(user + 500)
+console.log(user)
+console.log(user + 500)
 */
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -137,8 +135,20 @@ alert(user + 500)
 
 //6. Add a property to the following object so that the following usage of object works 
 
+/*
+function makeUser() {
+    
+    return {
+        name : "John",
+        ref() {
+            return this;
+        }
+    }
+}
 
-
+user = makeUser()
+console.log(user.ref().name)
+*/
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //7.Create an object calculator with three methods
@@ -178,8 +188,6 @@ console.log(calculator.mul())
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //8. Make th function calls chainable
-
-
 /*
 let ladder = {
     step: 0,
@@ -202,7 +210,6 @@ let ladder = {
 
 ladder.up().up().down().up().showStep();
 */
-
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -941,13 +948,35 @@ unique(strings)
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
-//38. Create a function that should return an array with unique items of arr.
+//38. Read the messages from the array.
+/*
+let messages = [{text: "Hello", from: "John"},
+               {text: "How goes?", from: "John"},
+               {text: "See you soon", from: "Alice"}]
 
+let readMessages = new WeakSet();
+
+readMessages.add(messages[0]);
+readMessages.add(messages[1]);
+
+console.log("Is the message 0 read?" + " "+readMessages.has(messages[0]))
+
+console.log(readMessages)
+*/
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //39. Create a function that should return an array with unique items of arr.
 
+/*
+let messages = [{text: "Hello", from: "John"},
+               {text: "How goes?", from: "John"},
+               {text: "See you soon", from: "Alice"}]
+
+let readMessages = new WeakMap();
+
+readMessages.set(messages[0], new Date())
+*/
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -977,15 +1006,40 @@ let room = {
     
     guest: "Spanidea",
     
-    toString
+    toJSON() {
+        
+        return this.guest
+    }
+    
 }
-JSON.stringify(room)
+console.log(JSON.stringify(room))
 */
+
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //42. Replacer function problem.
+
+/*
+let room = {
+    number : 23
+};
+
+let meetup = {
+    
+    title : "Conference",
+    occupiedBy : [ {name : "John"}, {name:"Alice"}],
+    place: room
+}
+
+room.occupiedBy = meetup;
+meetup.self = meetup;
+
+console.log(JSON.stringify(meetup, function replacer(key, value) {
+    return (key != "" && value == meetup) ? undefined : value
+}))
+*/
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1179,13 +1233,19 @@ console.log(pow(2, 4))
 
 //49. Write a function to calculate the sum of salaries from the object.
 
+/*
 function totSal(company) {
     
     for(var key in company) {
         
-        for(var chKey in company[key]) {
+        console.log(Array.isArray(company[key]))
+        if(Array.isArray(company[key])) {
             
-            console.log(company[key][chKey])
+            console.log(company[key])
+            for(var i=0;i<company[key].length;i++) {
+                
+                console.log(company[key][i])
+            }
         }
     }
 }
@@ -1219,3 +1279,930 @@ let company = {
 }
 
 totSal(company)
+*/
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//50. Implement a linked list in core JavaScript.
+
+/*
+function printList(list) {
+    
+   for(var key in list) {
+       
+        if(key === "value") {
+            
+            console.log(list[key])
+        } else if(key === "next"){
+            
+            printList(list[key])
+        }
+   }
+    
+}
+
+
+
+let list = {
+    
+    value : 1,
+    next : {
+        value : 2,
+        next : {
+            value : 3,
+            next : {
+                value : 4,
+                next : null
+            }
+        }
+    }
+}
+
+printList(list)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//51. Implement a linked list in core JavaScript in reverse order.
+
+/*
+function printList(list) {
+    
+    
+}
+
+
+
+
+
+let list = {
+    
+    value : 1,
+    next : {
+        value : 2,
+        next : {
+            value : 3,
+            next : {
+                value : 4,
+                next : null
+            }
+        }
+    }
+}
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//52. Calculate sum of numbers to n.
+
+/* 1.
+function sumTo(n) {
+    
+    var sum = 0
+    
+    for(var i=1; i<=n;i++) {
+        
+        sum+=i;
+        
+    }
+    
+    console.log(sum)
+    
+}
+
+sumTo(100000)
+*/
+
+
+/*2.
+function sumTo(n) {
+    
+    var sum = 0;
+    
+    
+    if(n>0) {
+        
+       return (n + sumTo(n-1))
+        
+    } else {
+        
+       return n
+    }
+    
+    
+    
+}
+
+console.log(sumTo(10))
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//53. Calculate sum of numbers to n.
+
+/*
+function factorial(n) {
+    
+    if(n>1) {
+        
+        return (n*factorial(n-1))
+    } else {
+        return n
+    }
+}
+
+
+console.log(factorial(5))
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//54. Write a function to display n-th fibonacci number.
+
+/*
+function fib(n) {
+    
+    arr = [];
+    
+    arr[0] = 0;
+    arr[1] = 1;
+    
+    if(n > 2) {
+        
+        for(var i=2;i<=n;i++) {
+            
+            arr[i] = arr[i-1] + arr[i-2]
+        }
+    }
+    
+    return arr[n]
+}
+
+console.log(fib(3))
+*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//56. Create a delay function.
+
+/*
+function delay(f, ms) {
+    
+    return function() {
+        setTimeout(() => f.apply(this, arguments), ms)
+    }
+}
+
+
+function f(x) {
+    
+    console.log(x)
+}
+
+let f1000 = delay(f, 3000)
+
+f1000("test");
+*/
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//59. Find all ways i which array can be merged.
+
+/*
+function merge(arr1,arr2,arr3) {
+    
+    var arr=[...arr1,...arr2,...arr3];
+    
+    console.log([arr1+arr2+arr3])
+    
+    console.log(arr)
+}
+
+
+let arr1 = [4,22,54,-52,36,105]
+let arr2 = [84,45,65,98,52,14,70]
+let arr3 = [55,65,32,65,98,45,52,25]
+
+merge(arr1, arr2, arr3)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//60. Modify the function makeCounter().
+
+/*
+function makeCounter() {
+    
+    console.log(this);
+    
+    let count = 0;
+    
+    function counter(){
+        return count;
+    }
+    
+    counter.set = (value) => count = value;
+    
+    counter.decrease = () => count--;
+    
+    return counter;
+}
+
+function Test(){
+    
+    this.x = 10;
+    console.log(this);
+}
+
+new Test();
+
+
+function test(){
+    let x = {
+        x: 55
+    }
+    
+    return x;
+}
+
+console.log(test());
+
+let counter = makeCounter();
+
+counter.set(10)
+counter.decrease()
+console.log(counter())
+*/
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//61. Write a function to sum the numbers.
+
+/*
+function sum(a) {
+
+    let currentSum = a;
+
+    function f(b) {
+
+        currentSum += b;
+        return f;
+    };
+    
+        f.toString = function() {
+            return currentSum
+        };
+    
+    return f;
+}
+
+console.log(sum(1)(2)(3))
+*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//62. Use closures to create a function to implement counter.
+/*
+function makeCounter() {
+    
+    let count = 0;
+    
+    return function(){
+        
+        return ++count;
+    }
+}
+
+let counter = makeCounter();
+let counter2 = makeCounter();
+
+console.log(counter())
+console.log(counter())
+console.log(counter2())
+console.log(counter2())
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//63. Write a function sum that works like this: sum(a)(b) = a+b
+
+/*
+function sum(first) {
+    
+    return function(second) {
+        
+        return first + second
+    }
+}
+console.log(sum(1)(2))
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//64. Write a function for inBetween() and inArray().
+
+/*
+function inBetween(a,b) {
+    
+    return function(x) {
+        
+        return x>=a && x<= b
+    }
+}
+
+function inArray(arr) {
+    
+    return function(x) {
+        
+        return arr.includes(x)
+    }
+}
+
+let arr = [1,2,3,4,5,6,7]
+
+console.log(arr.filter(inBetween(3,6)))
+console.log(arr.filter(inArray([1,2,10])))
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//65. Sort an array of objects.
+
+/*
+function byField(field) {
+
+    return function(a, b) {
+        
+        console.log(a)
+        
+        return a[field] > b[field]? 1 : -1;
+    }
+}
+
+let users = [{name : "John", age : 20, surname : "Johnson"},
+            {name : "Pete", age : 18, surname : "Peterson"},
+            {name : "Ann", age : 19, surname : "Hathaway"}
+            ]
+console.log(users.sort(byField('name')))
+*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//66. Fix the code to show the correct output.
+
+/*
+function makeArmy() {
+    
+    let shooters = [];
+    
+    for(let i = 0; i<10;i++ ) {
+        
+        let shooter = function() {
+            console.log(i)
+        };
+        shooters.push(shooter)
+        
+    }
+    return shooters;
+}
+
+let army = makeArmy()
+
+army[0]()
+army[5]()
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//67. Print numbers every second in using function printNumbers(from, to)
+
+/*
+function printNumbers(from, to) {
+    
+    let current = from
+    let timerId = setInterval(function() {
+        console.log(current)
+    
+    if(current === to) {
+        clearInterval(timerId)
+    }
+    current++
+    },1000)
+}
+
+printNumbers(2,6)
+*/
+
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//69. Print numbers every second in using function printNumbers(from, to)
+
+/*
+function askPassword(ok, fail) {
+    
+    let password = prompt("Password?", '');
+    
+    if (password == "rockstar") ok()
+    else fail();
+}
+
+let user ={
+    
+    name : "John",
+    
+    loginOk() {
+
+    console.log(`${this.name} Logged in`)
+    },
+    
+    loginFail() {
+    
+    console.log(`${this.name} Failed to login`)
+    }
+}
+
+
+askPassword(user.loginOk.bind(user), user.loginFail.bind(user))
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//70. Extension of above problem.
+/*
+function askPassword(ok, fail) {
+    
+    let password = prompt("Password?", '');
+    
+    if (password == "rockstar") ok()
+    else fail();
+}
+
+let user ={
+    
+    name : "John",
+    
+    login(result) {
+
+    console.log(this.name + (result ? Logged in : Failed to login))
+    }
+}
+
+
+askPassword(user.login.bind(true), user.login.bind(false))
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//71. Class problem fix it.
+
+/*
+class Animal {
+    
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Rabbit extends Animal {
+    
+    constructor(name) {
+        
+        super(name)
+        this.created = Date.now()
+    }
+}
+
+let rabbit = new Rabbit("White Rabbit")
+console.log(rabbit.name)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//73. Here's a code that creates a pair of objects, then modifies them.
+
+/*
+let animal = {
+    jumps : null
+}
+
+let rabbit = {
+    
+    __proto__: animal,
+    jumps : true
+}
+
+console.log(rabbit.jumps) // true
+
+delete rabbit.jumps
+
+console.log(rabbit.jumps) // null
+
+delete rabbit.jumps
+
+console.log(rabbit.jumps) // undefined
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//74.
+
+/*
+let head = {
+    glasses : 1
+}
+
+let table = {
+    __proto__ : head,
+    
+    pen: 3
+}
+
+let bed = {
+    __proto__ : table,
+    
+    sheet: 1,
+    pillow: 2
+}
+
+
+let pockets = {
+    
+    
+__proto__ : bed,
+    money: 2000
+}
+
+console.log(pockets.pen)
+console.log(bed.glasses)
+*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//75.If we call rabbit.eat() which object receives the full property: animal or rabbit?
+/*
+let animal = {
+    eat() {
+        this.full = true
+    }
+}
+
+let rabbit = {
+    
+    __proto__ : animal
+}
+
+rabbit.eat()
+
+// Answer is rabbit because this points to the rabbit object.
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//76. We have two hamsters: speedy and lazy inheriting from general hamster object. When we feed one of them other is also full. Why? How to fix it?
+
+/*
+let hamster = {
+    stomach: [],
+    
+    eat(food) {
+        this.stomach = [food];
+    }
+}
+
+let speedy = {
+    __proto__ : hamster
+};
+
+let lazy = {
+    __proto__: hamster
+}
+
+speedy.eat("apple")
+
+console.log(speedy.stomach)
+
+console.log(lazy.stomach)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//77. Find the error in prototypal inheritance below:
+
+/*
+function Animal(name) {
+    this.name = name
+}
+
+Animal.prototype.walk = function() {
+    console.log(`${this.name} walks!`)
+}
+
+function Rabbit(name) {
+    this.name = name
+}
+
+Rabbit.prototype.__proto__ = Animal.prototype
+
+Rabbit.prototype.walk = function() {
+    console.log(`${this.name} bounces!`)
+}
+
+let animal = new Animal("elephant")
+
+animal.walk()
+*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//78. Rewrite clock using prototypes.
+/*
+function Clock({template}) {
+    
+    this._template = template 
+        
+}
+    
+    Clock.prototype._render = function() {
+    
+    let date = new Date()
+    
+    let hours = date.getHours();
+        if(hours< 10) hours = '0' + hours
+        
+        let mins = date.getMinutes();
+        if(mins< 10) mins = '0' + mins
+        
+        let secs = date.getSeconds();
+        if(secs< 10) secs    = '0' + secs
+        
+        let output = this._template
+                .replace('h', hours)
+                .replace('m', mins)
+                .replace('s', secs)
+        console.log(output)
+    }
+    
+    Clock.prototype.stop =  function() {
+        clearInterval(this._timer)
+    }
+    
+    Clock.prototype.start = function() {
+        this._render()
+        this._timer = setInterval(() => this._render(), 1000)
+    }
+
+let clock = new Clock({template: 'h:m:s'})
+//clock.start()
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//79. Modify its prototype.
+/*
+function Rabbit() {}
+    Rabbit.prototype = {
+        eats: true
+    }
+    
+let rabbit = new Rabbit();
+Rabbit.prototype = {}
+console.log(rabbit.eats) // true because Rabbit.prototype affects only newly created objects but rabbit is already created. So, it will return true.
+    
+
+function Rabbit() {}
+    Rabbit.prototype = {
+        eats: true
+    }
+    
+let rabbit = new Rabbit();
+Rabbit.prototype.eats = false;
+console.log(rabbit.eats) // rabbit object is assigned via reference. So, if we change the valure of Rabbit.prototype then the value of the oject which is referenced through that object, its value also changes. Hence, false.
+
+function Rabbit() {}
+    Rabbit.prototype = {
+        eats: true
+    }
+    
+let rabbit = new Rabbit();
+delete rabbit.eats;
+console.log(rabbit.eats) // true The rabbit does noot have eats property it references the property from Rabbit object. So, delete cannot delete the property which is not present.
+
+function Rabbit() {}
+    Rabbit.prototype = {
+        eats: true
+    }
+    
+let rabbit = new Rabbit();
+delete Rabbit.prototype.eats
+console.log(rabbit.eats)// because the main object property to which the other objects are referenced is deleted. So, it will reflect on to the referenced objects as well. So, undefined
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//80. Imagine, we have an arbitrary object obj, created by a constructor function – we don’t know which one, but we’d like to create a new object using it.Can we do it like that? let obj2 = new obj.constructor()
+
+// Right example
+/*
+function Rabbit(name) {
+    this.name = name
+}
+
+let rabb = new Rabbit("Bugs")
+let rabbie = new rabb.constructor("Bunny")
+console.log(rabbie.name)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//81. Rewrite clock class to the modern "class" syntax.
+/*
+class Clock {
+    constructor({template}) {
+        this.template = template
+    }
+    
+    render() {
+        let date = new Date()
+    
+    let hours = date.getHours();
+        if(hours< 10) hours = '0' + hours
+        
+        let mins = date.getMinutes();
+        if(mins< 10) mins = '0' + mins
+        
+        let secs = date.getSeconds();
+        if(secs< 10) secs    = '0' + secs
+        
+        let output = this.template
+                .replace('h', hours)
+                .replace('m', mins)
+                .replace('s', secs)
+        console.log(output)
+    }
+    
+    stop() {
+        clearInterval(this.timer)
+    }
+    
+    start() {
+        this.render()
+        this.timer = setInterval(() => this.render(), 1000)
+    }
+}
+
+let clock = new Clock({template : 'h:m:s'})
+clock.start()
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//82. There's a tree structured as nested ul/li.Write a code that for each <li> shows:
+
+//1. What's the text inside it.
+/*
+let a = document.querySelectorAll('li')
+
+for(let li of document.querySelectorAll('li')) {
+    
+    let text = li.firstChild.data
+    console.log(text)
+    console.log(li.getElementsByTagName('li'))
+}
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//83. What does the script show?
+/*
+console.log(document.body.lastChild.nodeType) // 1 the last child is the script tag of which the value is 1. And at the time of execution even if there are nodes after that, the last child is script tag only.
+*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//84. 
+/*
+
+console.log(document.getElementById("age-table"))
+console.log(document.getElementById("age-table").getElementsByTagName("label"))
+console.log(document.getElementById("age-table").getElementsByTagName("td")[0])
+console.log(document.getElementsByName("search"))
+
+let input = document.getElementsByName("search")[0].getElementsByTagName("input")ba
+
+console.log(document.getElementsByName("search")[0].getElementsByTagName("input")[0])
+console.log(input[input.length - 1])
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+//85.
+
+/*
+let button = document.getElementById("btn")
+
+button.onclick = function() {
+    
+    document.getElementById("text").hidden = true
+}
+
+document.getElementById("self").onclick = function() {
+    
+    document.getElementById("self").hidden = true
+}
+*/
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//86.
+/*
+document.getElementById("field").onclick = function(event) {
+    
+    let fieldcoords = this.getBoundingClientRect()
+    console.log(fieldcoords)
+    
+    let ballcoords = {
+        top: event.clientY - fieldcoords.top - field.clientTop - ball.clientHeight / 2,
+        left: event.clientX - fieldcoords.left - field.clientLeft - ball.clientWidth / 2
+    }
+    
+    //for top
+    if(ballcoords.top<0){
+           ballcoords.top = 0; 
+        }
+    //for left
+    if(ballcoords.left<0) {
+        ballcoords.left = 0;
+    }
+    
+    //for right
+    if(ball.clientWidth + ballcoords.left > field.clientWidth) {
+        ballcoords.left = field.clientWidth -  ball.clientWidth
+    }
+    bottom
+    //for 
+    if(ball.clientHeight + ballcoords.top > field.clientHeight) {
+        ballcoords.top = field.clientHeight -  ball.clientHeight
+    }
+    
+    ball.style.top = ballcoords.top + 'px'
+    ball.style.left = ballcoords.left + 'px'
+    console.log(ballcoords.top)
+}
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//87.
+/*
+function toggle() {
+    let menu = document.getElementById("menu")
+    
+    if(menu.style.display === "none") {
+        menu.style.display = "block"
+    } else {
+        menu.style.display = "none"
+    }
+}
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//88.
+
+//Done in index.html
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//89.
