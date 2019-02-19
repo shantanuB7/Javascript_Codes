@@ -2206,3 +2206,222 @@ function toggle() {
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //89.
+/*
+function clear(elem) {
+    console.log(document.getElementById("elem").parentNode.removeChild(elem))
+}
+
+clear(elem)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//90. Create a list
+/*
+function createList() {
+let ul = document.createElement("UL")
+document.body.append(ul)
+
+
+
+while(true) {
+let item = prompt("Enter an item")
+ 
+    if(!item) {
+        break
+    }
+    
+    let li = document.createElement("LI")
+
+    li.textContent = item
+    
+    ul.appendChild(li)
+    }    
+}
+
+createList()
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//91.  Create a tree list.
+/*
+let data = {
+    
+    "fish" : {
+        "trout" : {},
+        "salmon" : {}
+    },
+    
+    "Tree" : {
+      "Huge" : {
+          "Sequoia" : {},
+          "oak" : {}
+      },
+        "Flowering" : {
+            "redbud" : {},
+            "magnlia" : {}
+        }
+    }
+}
+function createTree(container, obj) {
+    container.innerHTML = createTreeText(obj)
+}
+
+function createTreeText(obj) {
+    let li = '';
+    let ul;
+    for(let key in obj) {
+         li += '<li>' + key + createTreeText(obj[key]) + '</li>'
+    }
+    
+    if(li) {
+        ul = '<ul>' + li + '</ul>'
+    }
+    
+    return ul || ''
+}
+
+createTree(container, data)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//92. Count the list elements.
+/*
+let list = document.getElementsByTagName('li')
+
+
+for (let li of list) {
+    
+    let dCount = li.getElementsByTagName('li').length;
+    if(!dCount) {
+        continue;
+    }
+    
+    li.firstChild.data += '[' + dCount + ']'
+}
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//93. 
+/*
+function createCalendar(elem, year, month) {
+    
+    let mon = month - 1;
+    let d = new Date(year, mon)
+    
+    console.log(d)
+    
+    let table = '<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>'
+    
+    for(i=0; i < getDay(d); i++){
+        
+        table += '<td></td>'
+    }
+    
+    while(d.getMonth() == mon) {
+        table += '<td>' + d.getDate() + '</td>'
+        
+        if(getDay(d)%7 == 6) {
+            table += '</tr><tr>'
+        }
+        
+        d.setDate(d.getDate() + 1)
+        
+    }
+    
+    if(getDay(d) != 0) {
+        
+        for(let i = getDay(d); i < 7; i++) {
+            table += '<td></td>'
+        }
+    }
+    
+    table += '</tr></table>'
+    
+    elem.innerHTML = table
+}
+
+
+function getDay(date) {
+    day = date.getDay();
+    console.log(day)
+    if(day == 0) day = 7
+    return day - 1;
+}
+
+createCalendar(calendar, 2012, 9)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//94. 
+/*
+function updateClock() {
+  
+    date = new Date()
+    let h = date.getHours()
+    let m = date.getMinutes()
+    let s = date.getSeconds()
+    
+    if(h < 10) {
+        h = '0' + h
+    }
+    if(m < 10) {
+        m = '0' + m
+    }
+    if(s < 10) {
+        s = '0' + s
+    }
+    
+    document.getElementById('hours').innerHTML  = date.getHours()
+    document.getElementById('minutes').innerHTML  = date.getMinutes()
+    document.getElementById('seconds').innerHTML  = s
+    
+    let timerId = setTimeout(updateClock, 500)
+    
+}
+
+updateClock()
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//95. 
+/*
+let list = '<li>2</li><li>3</li>'
+
+document.getElementById('one').insertAdjacentHTML('afterend', list)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//96. 
+/*
+let sortedRows = Array.from(document.getElementById("table").rows).slice(1)
+                    .sort((rowA,rowB) => rowA.cells[0].innerHTML > rowB.cells[0].innerHTML ? 1:-1);
+
+table.tBodies[0].append(...sortedRows)
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//97. 
+
+    grid.onclick = function(e) {
+        
+        th = e.target
+        if(th.tagName != 'TH') return;
+        
+        console.log(th.cellIndex, th.dataset.type)
+    }
