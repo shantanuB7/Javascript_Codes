@@ -1,0 +1,34 @@
+#ball {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transition: all 1s;
+}
+
+#field {
+    width: 200px;
+    height: 150px;
+    border: 10px solid black;
+    background-color: #00FF00;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+th,td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+
+#hours {
+    color: red;
+}
+
+#minutes {
+    color: green;
+}
+
+#seconds {
+    color: blue;
+}
