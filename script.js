@@ -2554,4 +2554,166 @@ document.getElementById("contents").onclick = function(event) {
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //103. 
+/*
+document.getElementById("thumbnail").onclick = function(event) {
+    
+    let target = event.target.closest('a')
+    
+    if(!target) return;
+    showImage(target.href)
+    event.preventDefault();
+}
+
+function showImage(href) {
+        document.getElementById("largeImg").src = href
+        
+    }
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//104.
+/*
+function runOnKeys(func, ...codes) {
+      let pressed = [];
+
+      document.addEventListener('keydown', function(event) {
+        pressed.push(event.code);
+
+        for (let code of codes) { // are all keys in the set?
+          if (!pressed.includes(code)) {
+            return;
+          }
+        }
+
+        pressed = [];
+
+        func();
+      });
+    
+//    document.addEventListener('keyup', function(event) {
+//        
+//        let index = pressed.indexOf(event.code)
+//        
+//        if(index > -1) {
+//            pressed.splice(index, 1)
+//        }
+//    })
+}
+    
+    runOnKeys(
+      () => alert("Hello!"),
+      "KeyQ",
+      "KeyW"
+    );
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//106.Not getting o/p 
+
+document.onmouseover = function(event) {
+    
+    
+    let tooltip;
+    let target = event.target.closest('[data-tooltip]')
+    
+//    console.log(target);
+    
+    if(!target) return;
+    
+    tooltip = showTooltip(target, target.dataset.tooltip)
+//    console.log(tooltip)
+//        
+}
+
+function showTooltip(target, data) {
+        
+        let element = document.createElement('div')
+        element.className = 'tooltip';
+        element.innerHTML = data
+        document.body.append(element)
+    
+    console.log(target);
+    
+    let coords = target.getBoundingClientRect()
+    
+    console.log(coords);
+    console.log(target.offsetWidth);
+    console.log(target.offsetHeight);
+    console.log(element.offsetWidth);
+    
+    let left = coords.left + ((target.offsetWidth - element.offsetWidth)/2)
+    if(left<0) left = 0;
+    
+    let top = coords.top - target.offsetHeight - 5
+    if(top < 0) {
+        top = coords.top + target.offsetHeight + 5
+    }
+        
+        element.style.left = left + 'px'
+        element.style.top = top + 'px'
+        
+        console.log(element.style.left);
+        console.log(element.style.top);
+        
+        return element;
+    
+    }
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//108.
+/*
+let thumb = slider.querySelector('.thumb')
+
+
+thumb.onmousedown = function(event) {
+    
+    event.preventDefault()
+    
+    let shiftX = event.clientX - thumb.getBoundingClientRect().left
+    
+    document.addEventListener('mousemove', onmousemove)
+    document.addEventListener('mouseup', onmouseup)
+    
+    
+    function onmousemove(event) {
+        
+        let newleft = event.clientX - shiftX - slider.getBoundingClientRect().left
+        
+        if(newleft<0) {
+            newleft = 0
+        }
+        
+        console.log(event.clientX)
+        
+        let rightEdge = slider.offsetWidth - thumb.offsetWidth;
+        if(newleft > rightEdge) {
+            newleft = rightEdge
+        }
+        
+        thumb.style.left = newleft + 'px'
+        
+    }
+    
+    function onmouseup() {
+        document.removeEventListener('mouseup', onMouseUp);
+        document.removeEventListener('mousemove', onMouseMove);
+      }
+
+    };
+
+    thumb.ondragstart = function() {
+      return false;
+    };
+*/
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//109.
 
