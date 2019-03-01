@@ -2865,10 +2865,10 @@ function calculate() {
 //113. 
 
 function showCover() {
+    
       let coverDiv = document.createElement('div');
       coverDiv.id = 'cover-div';
 
-      // make the page unscrollable while the modal form is open
       document.body.style.overflowY = 'hidden';
 
       document.body.append(coverDiv);
