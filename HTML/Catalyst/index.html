@@ -13,11 +13,42 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         
         
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
         
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body data-spy="scroll" data-target=".fixed-top" data-offset="50">
+       
+        
+            
+            <nav class="navbar navbar-expand-md fixed-top custom-navbar" id="navbar" role="navigation">
+                    <div class="container">
+                      <a class="navbar-brand" href="#">
+                          <i class="far fa-bookmark"></i>
+                          Catalyst</a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                          <li class="active">
+                            <a class="nav-link smoothScroll" href="#about">About <span class="sr-only">(current)</span></a>
+                          </li>
+                          <li>
+                            <a class="nav-link smoothScroll" href="#services">Services</a>
+                          </li>
+                          <li>
+                            <a class="nav-link smoothScroll" href="#pricing">Pricing</a>
+                          </li>
+                          <li>
+                            <a class="nav-link smoothScroll" href="#contact">Contact</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                </nav>
+        
         
         <header id="header">
             
@@ -301,5 +332,9 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/15.2.1/smooth-scroll.js"></script>
+
+        
+        <script src="script.js"></script>
     </body>
 </html>

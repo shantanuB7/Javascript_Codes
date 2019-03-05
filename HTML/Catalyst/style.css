@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Roboto'
     width: 100% !important;
@@ -52,7 +56,18 @@ ul {
     font-size: 18px;
 }
 
+.btn-custom:hover {
+    color: #fff;
+    background: #444;
+}
 
+.pricing-table .btn-system:hover,
+.pricing-table .btn-system.border-btn:hover{
+    color: #fff;
+    background: #444;
+}
+
+ 
 /*---------------------------------HEADER--------------------------------------*/
 .intro {
     display: table;
@@ -73,6 +88,7 @@ header .intro-text {
     padding-top: 300px;
     padding-bottom: 200px;
     text-align: center;
+    width: 1170px;
 }
 
 .intro h1 {
@@ -102,6 +118,51 @@ header .intro-text {
     margin-top: 20px;
 }
 
+
+/*---------------------------------NAVBAR--------------------------------------*/
+
+#navbar a.navbar-brand {
+    font-size: 20px;
+    color: #444;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#navbar a.navbar-brand i.far {
+    color: 0ba2db;
+}
+
+#navbar {
+    padding: 20px;
+    height: 90px;
+    border-bottom-width: 1px;
+    margin-bottom: 20px;
+}
+
+#navbar.navbar-expand-md .navbar-nav > li > a {
+    text-transform: uppercase;
+    color: #444;
+    font-weight: 400;
+    letter-spacing: 1px;
+    height: 36px;
+    padding: 15px;
+}
+
+.back {
+    
+    background: #f6f6f6;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #ddd !important;
+    height: 71px !important;
+}
+
+#navbar.navbar-expand-md .navbar-nav > li > a:hover {
+    color: #0ba2db;
+}
+
+.back a.active {
+    color: #0ba2db !important;
+}
 
 /*---------------------------------ABOUT--------------------------------------*/
 
@@ -274,6 +335,10 @@ header .intro-text {
     font-size: 26px;
     padding: 4px;
     color: #0ba2db; 
+}
+
+#contact .social i.fab:hover {
+    color: #444;
 }
 
 

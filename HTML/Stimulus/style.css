@@ -108,6 +108,7 @@ footer{
     z-index: 1030;
     padding: 0;
     margin: 0;
+    height: 70px;
 }
 
 .custom-navbar
