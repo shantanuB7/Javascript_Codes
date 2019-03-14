@@ -160,6 +160,10 @@ header .intro-text {
     color: #0ba2db;
 }
 
+#navbar.navbar-expand-md .navbar-nav > li > a.active {
+    color: #0ba2db;
+}
+
 .back a.active {
     color: #0ba2db !important;
 }
