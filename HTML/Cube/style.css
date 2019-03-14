@@ -1,10 +1,11 @@
-body {
+html,body {
     font-family: 'Raleway';
     font-weight: 400;
     font-size: 16px;
     line-height: 1.7;
     color: #777;
     background: #fff;
+    overflow-x: hidden;
 }
 
 p {
@@ -24,6 +25,11 @@ p {
     color: #3ac1bc;
 }
 
+#navbar ul li > a.active {
+    padding: 30px 10px;
+    color: #000;
+}
+
 nav ul li > a {
     text-transform: uppercase;
     font-size: 13px !important;
@@ -39,6 +45,12 @@ h3 {
 
 .dropdown:hover >.dropdown-menu{
     display: block;
+}
+
+footer a:hover{
+    color: #fff !important;
+    outline: none;
+    text-decoration: none;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -72,6 +84,25 @@ h3 {
     font-size: 59px;
     margin: 0;
     padding: 0;
+}
+
+@media screen and (max-width:768px) {
+    #header .display-tc h1 {
+        font-size: 34px;
+        text-align: center;
+        height: 81px;
+        margin-bottom: 30px;
+    }
+    
+}
+
+@media screen and (max-width:768px) {
+    #header p {
+    font-size: 20px;
+    margin-bottom: 40px !important;
+    color: #d3f1ed;
+    text-align: center;
+}
 }
 
 #header p {
@@ -285,6 +316,7 @@ h3 {
 .btn-white.btn-outline {
     color: #fff;
     border: 2px solid #fff;
+    background: #000;
 }
 
 #footer .footer-link .list-link {
@@ -337,10 +369,7 @@ a {
     width: 100%;
     padding: 30px 0;
 }
-
-
-
-
+    
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                 INDEX PAGE
@@ -348,7 +377,8 @@ a {
 
 
 .cover {
-    background: linear-gradient(to right, #3dcdbc, #33a1bd);
+    background: linear-gradient(to right, #3dcdbc, #33a1bd) !important;
+    height: 900px;
 }
 
 .cover .display-tc {
@@ -359,18 +389,15 @@ a {
 
 .cover .display-tc h1 {
     font-size: 59px;
-    height: 900px;
     width: 100%;
+    margin-bottom:  30px;
 }
 
 #header .header-img {
     margin-bottom: 30px;
 }
 
-.cover .display-tc h1 {
-    margin-bottom: 30px;
-    height: 140px;
-}
+
 
 #header .btn {
     color: #34a7bd;
@@ -421,4 +448,30 @@ ul li > i {
     padding-right: 35px;
     font-size: 25px;
     color: #cccccc;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                Back 2 Top Arrow
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#back2top{
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    z-index: 999;
+    position: fixed;
+    display: none;
+    bottom: 50px;
+    right: 20px;
+    font-size: 30px;
+    text-decoration: none; 
+    background: transparent;
+    font-size: 18px;
+    text-align: center;
+}
+
+#back2top i {
+    font-size: 100px;
+    color: #000;
 }

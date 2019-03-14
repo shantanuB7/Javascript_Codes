@@ -19,47 +19,38 @@ alert(isEmpty(schedule));
 schedule["8:30"] = "get up";
 alert(isEmpty(schedule))
 
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------
 */
+
+
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
 //2. Write the code to sum all salaries and store in the variable sum. If salaries is empty, the result must be 0.
-
-
 /*
+
 function totSal(salaries) {
-    
+
+
     var sum =0;
     
-    for(var name in salaries) {
-        if(salaries.hasOwnProperty(name)) {
-            sum=0;
-
-        }
-    }
+//    for(var name in salaries) {
+//        if(salaries.hasOwnProperty(name)) {
+//            sum=0;
+//
+//        }
+//    }
     
     for(var name in salaries) {
-        sum += parseInt(salaries[name])
-        
-    }
-    
-    return sum;
-    
-    
-    
+        sum += salaries[name]
+    }    
+    return sum;   
 }
 
 
 let salaries = {
-    John: 100,
-    Ann: 160,
-    Pete: 130
+    John: "100",
+    Ann: "160",
+    Pete: "130"
 }
 
 console.log(totSal(salaries))
@@ -68,6 +59,7 @@ console.log(totSal(salaries))
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //3. Create a function multiplyNumeric(obj) that multiplies all numeric properties of objects by 2.
+
 /*
 function multiplyNumeric(menu) {
     
@@ -97,40 +89,33 @@ multiplyNumeric(menu)
 //4. Add a property to the following object so that the following usage of object works 
 
 /*
-    user = {
+    let user = {
         name : "John",
         money : 1000,
-        [Symbol.toPrimitive]() {
-            return `{name : "${this.name}"}`
-        },
-        
-        valueOf() {
-            return this.money
+        [Symbol.toPrimitive](hint) {
+            return hint == "string" ? `{name : "${this.name}"}` : this.money
         }
     }
 
-console.log(user)
+alert(user)
+console.log(+user)
 console.log(user + 500)
 */
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //5. Add a property to the following object so that the following usage of object works 
-    
-    /*
-    function User(name) {
+ /*
+    let user = {
+        name : "John",
         
-        this.name = name;
+        toString() {
+            return this.name
+        }
     }
     
-
-    
-   
-    
-    console.log(user)
-    
-    */
-
+    alert(user)
+    console.log(user+500)
+*/
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //6. Add a property to the following object so that the following usage of object works 
@@ -140,9 +125,9 @@ function makeUser() {
     
     return {
         name : "John",
-        ref() {
-            return this;
-        }
+        ref() { 
+        return this
+    }
     }
 }
 
@@ -152,38 +137,37 @@ console.log(user.ref().name)
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //7.Create an object calculator with three methods
-
-
 /*
 calculator = {
     
     read() {
     var values= [];
-    values[0] = prompt("Enter the first value:")
-    values[1] = prompt("Enter the second value:")
-    calculator.num1 = parseInt(values[0])
-    calculator.num2 = parseInt(values[1])
-    console.log(calculator.num1,calculator.num2)   
+    this.num1 = +prompt("Enter the first value:")
+    this.num2 = +prompt("Enter the second value:")
+    console.log(this.num1,this.num2)   
 },
     sum() {
         var sum=0;
-        sum = calculator.num1 + calculator.num2;
+        sum = this.num1 + this.num2;
         return sum;
     },
     
     mul() {
         var product=0;
-        product = calculator.num1*calculator.num2;
+        product = this.num1*this.num2;
         
         return product;
     }
 }
 
-calculator.read()
-console.log(calculator.sum())
-console.log(calculator.mul())
-*/
+var x = calculator
 
+calculator = null
+
+x.read()
+console.log(x.sum())
+console.log(x.mul())
+*/
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -193,17 +177,17 @@ let ladder = {
     step: 0,
     up() {
         this.step++;
-        return ladder
+        return this
     },
     down() {
         this.step--;
         
-        return ladder;
+        return this;
     },
     showStep() {
         alert(this.step);
         
-        return ladder;
+        return this;
     }
 }
 
@@ -214,25 +198,21 @@ ladder.up().up().down().up().showStep();
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //9. Create a constructor function that creates objects with methods
-
 /*
 function Calculator() {
     
     
         this.read = function() {
-            var values= [];
-            values[0] = prompt("Enter the first value:")
-            values[1] = prompt("Enter the second value:")
-            this.num1 = parseInt(values[0])
-            this.num2 = parseInt(values[1])
+            this.num1 = +prompt("Enter the first value:")
+            this.num2 = +prompt("Enter the second value:")
             console.log(this.num1,this.num2)
         
     },
     
         this.sum = function() {
-          var sum;
-        sum = this.num1 + this.num2;
-        return sum;
+            var sum;
+            sum = this.num1 + this.num2;
+            return sum;
     },
     
     this.mul = function() {
@@ -251,12 +231,9 @@ console.log(calculator.sum())
 console.log(calculator.mul())
 */
 
-
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //10. Create a constructor function that creates objects with methods
-
 /*
 function Accumulator(startingValue) {
     this.value = startingValue,
@@ -271,6 +248,7 @@ function Accumulator(startingValue) {
     }
     
 let accumulator = new Accumulator(1);
+accumulator.read()
 accumulator.read()
 console.log(accumulator.value)
 */
@@ -310,12 +288,11 @@ function camelize(str) {
     arr = str.split("-")
     console.log(arr)
     var temp = "";
-    var cha = ""
     
     for(i=0;i<arr.length;i++) {
         
         temp += arr[i].substring(0,1).toUpperCase() + arr[i].substring(1,arr[i].length);
-    }
+}
     
     if(arr[0] !== "") {
         
@@ -332,11 +309,9 @@ function camelize(str) {
 camelize("Background-color")
 */
 
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //13. Write a function that gets an array looks for numbers between a and b and returns an array of it.
-
 
 /*
 function filterRange(arr, a, b) {
@@ -357,10 +332,8 @@ function filterRange(arr, a, b) {
 
 let arr = [5,3,8,1]
 
-filterRange(arr,4,1)
-
+filterRange(arr,1,4)
 */
-
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -398,14 +371,16 @@ filterRangeInPlace(arr,1,4)
 /*
 function rotateArr(arr) {
     
-    var temp = arr.splice(arr.length-1,1)
-    arr.unshift(temp[0])
+    
+    arr.sort((a,b) => b-a)
+//    var temp = arr.splice(arr.length-1,1)
+//    arr.unshift(temp[0])
     console.log(arr)
 }
 
 let arr = [5,2,1,-10,8]
+rotateArr(arr)
 */
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //16. Sort an array alphabetically.
@@ -424,18 +399,56 @@ function copySorted(arr) {
 let arr = ["HTML", "Javascript", "CSS"]
 
 let sorted = copySorted(arr)
-
 */
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//17. Create an extendable "Calculator" object.
+
+/*
+function Calculator() {
+    
+    let methods = {
+        '-': (a, b) => a-b,
+        '+': (a,b) => a+b
+    }
+    
+    this.calculate = function(str) {
+        let arr = str.split(" ")
+        
+        
+        a = +arr[0],
+        op = arr[1],
+        b = +arr[2]
+        
+        if(!methods[op] || isNaN(a) || isNaN(b)) {
+            return NaN;
+        }
+        
+        return methods[op](a,b)
+    }
+    
+    this.addMethod = function(name, func) {
+        methods[name] = func
+    }
+}
+
+let calc = new Calculator;
+
+console.log(calc.calculate("3 + 7"))
+
+let powerCalc = new Calculator;
+
+powerCalc.addMethod("*", (a,b) => a*b)
+
+let result = powerCalc.calculate("2 * 3")
+
+console.log(result)
+*/
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
-//17. Sort an array alphabetically.
-
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-
-//18. Sort an array alphabetically.
+//18. Convert into array of names.
 
 /*
 function sort(arr) {
@@ -447,7 +460,6 @@ function sort(arr) {
         names[i] = arr[i].name
     }
     
-    names.sort()
     
     return names;
 }
@@ -594,13 +606,12 @@ let user = {
     years : 30
 }
 
+let {name, years:age, isAdmin = false} = user
 
 alert(name);
 alert(age)
 alert(isAdmin)
 */
-
-
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -620,7 +631,7 @@ function topSalary(salaries) {
         return 0;
     }
     
-    arr.sort();
+    arr.sort((a,b) => a-b);
     
     for(var name in salaries) {
         
@@ -632,11 +643,6 @@ function topSalary(salaries) {
     console.log(arr[arr.length - 1])
     
 }
-
-
-
-
-
 
 let salaries = {
     
@@ -832,10 +838,39 @@ getSecondsToTomorrow()
 /*
 function formatDate(date) {
     
-    console.log(date.getTime()
+    let diff = new Date() - date
+    
+    if(diff < 1000) {
+        return 'right now'
+    }
+    
+    let sec = Math.floor(diff/1000);
+    
+    if(sec < 60) {
+        return sec + ' sec. ago'
+    }
+    
+    let min = Math.floor(diff/60000)
+    
+    if(min < 60) {
+        return min + ' min. ago'
+    }
+    
+    let d = date;
+    
+    d = [
+        '0' + d.getDate(),
+        '0' + (d.getMonth() + 1),
+        '' + d.getFullYear(),
+        '0' + d.getHours(),
+        '0' + d.getMinutes()
+    ].map(component => component.slice(-2))
+    
+    
+    return d.slice(0,3).join('.') + ' ' + d.slice(3).join(':')
 }
 
-formatDate(new Date(new Date - 1))
+console.log(formatDate(new Date(new Date - 86400*1000)))
 */
 
 
@@ -861,23 +896,14 @@ ucFirst("john")
 /*
 function checkSpam(str) {
     
+    let strLower = str.toLowerCase();
     
-    var arr = ["viagra", "xxx"]
+    return strLower.includes("viagra") || strLower.includes("xxx")
     
-    for(var i =0;i<arr.length;i++) {
-        
-        if(str.match(/arr[i]/i) !== -1) {
-            
-            var
-            return true
-        } else 
-            return false
-    }
 }
 
 alert(checkSpam("get viAgRa now"))
 */
-
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -907,7 +933,6 @@ truncate("Hi Everyone!", 20)
 
 //35. Create a function to extract a numeric value from string.
 
-
 /*
 function extractCurrencyValue(str) {
     
@@ -915,7 +940,7 @@ function extractCurrencyValue(str) {
     
     console.log(parseInt(num))
     
-    return parseInt(num)
+    return +num
     
     
 }
@@ -944,8 +969,23 @@ unique(strings)
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //37. Create a function that should return an array with unique items of arr.
+/*
+function aclean(arr) {
+    
+    let obj = {}
+    
+    for(i=0; i< arr.length; i++) {
+        let sorted = arr[i].toLowerCase().split('').sort().join("");
+        obj[sorted] = arr[i]
+    }
+    
+    return Object.values(obj)
+}
 
+let arr = ["nap","teachers","cheaters","PAN","ear","era","hectares"]
 
+console.log(aclean(arr))
+*/
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //38. Read the messages from the array.
@@ -953,7 +993,7 @@ unique(strings)
 let messages = [{text: "Hello", from: "John"},
                {text: "How goes?", from: "John"},
                {text: "See you soon", from: "Alice"}]
-
+                                            
 let readMessages = new WeakSet();
 
 readMessages.add(messages[0]);
@@ -2864,6 +2904,7 @@ function calculate() {
 
 //113. 
 
+/*
 function showCover() {
     
       let coverDiv = document.createElement('div');
@@ -2937,3 +2978,4 @@ function showCover() {
         alert("You entered: " + value);
       });
     };
+   */
