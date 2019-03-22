@@ -89,8 +89,20 @@ h2 {
     height: 100vh;
 }
 
-#intro h3, #intro h1 {
+#intro h3 {
     color: #fff;
+    font-size: 26px;
+    margin-top: 20px;
+    margin-bottom: 10px
+}
+
+#intro h1 {
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    letter-spacing: 2px;
+    
 }
 
 #intro .btn {
@@ -105,6 +117,7 @@ h2 {
     margin-top: 42px;
     margin-right: 12px;
     transition: all 0.4s ease;
+    text-transform: uppercase;
 }
 
 #intro .btn-lm:hover {
@@ -112,9 +125,16 @@ h2 {
     color: #333;
 }
 
-#intro .btn-rn:hover {
+#intro .btn-rn {
     background: #f2545f;
-    border-color: transparent;
+    border-color: #f2545f;
+    transition: all 0.4s ease;
+
+}
+
+#intro .btn-rn:hover {
+    background: transparent;
+    border-color: #fff;
 }
 
 
@@ -164,12 +184,25 @@ h2 {
     padding: 224px 0;
 }
 
+#video h2 {
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#video h3 {
+    padding-bottom: 12px;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 
 /*-----------------------------------SPEAKERS------------------------------------*/
 
 #speakers {
     
-    padding: 224px 0;
+    padding: 100px 0;
     text-align: center;
     background: #f9f9f9;
 }
@@ -196,16 +229,22 @@ h2 {
 }
 
 #speakers h6 {
-    padding-bottom: 22px;
-    color: #666;
-    font-size: 12px;
+    color: #707070;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+#speakers h2 {
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 
 /*-----------------------------------PROGRAMS------------------------------------*/
 
 #program {
-    padding: 224px 0;
+    padding: 100px 0;
 }
 
 .tab-content img {
@@ -221,6 +260,12 @@ h2 {
     padding-right: 12px;
     font-weight: 600;
     font-size: 12px;
+}
+
+#program h2 {
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 #program h3 {
@@ -257,16 +302,12 @@ h2 {
     border-bottom: 1px solid #ddd;
 }
 
-#program h3 {
-    margin-top: 16px;
-}
-
 
 /*-----------------------------------REGISTER------------------------------------*/
 
 #register {
     background: url("images/register-bg.jpg");
-    padding: 224px 0;
+    padding: 140px 0;
     color: #fff;
 }
 #register .form-control {
@@ -292,6 +333,19 @@ h2 {
 #register .form-control[type="submit"]:hover {
     background: #fff;
     color: #000;
+}
+
+#register h2 {
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#register h3 {
+    padding-bottom: 12px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 24px;
 }
 
 
@@ -356,6 +410,16 @@ h2 {
     right: 16px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#faq .panel-default > .panel-heading+.panel-collapse>.panel-body {
+    border-top: none;
+    padding: 22px 0;
+    padding-left: 32px;
+}
+
+.panel-body p {
+    text-align: left;
 }
 
 
@@ -474,6 +538,7 @@ footer {
 /*-----------------------------------BACK2TOP------------------------------------*/
 
 .go-top {
+    display: none;
     background-color: #222;
     bottom: 32px;
     right: 32px;
