@@ -1,0 +1,294 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Open Sans';
+}
+
+.btn-default {
+    color: #71bd46;
+    background: transparent;
+    border: 1px solid #71bd46;
+    border-radius: 4px;
+    margin: 0 8px;
+    font-size: 18px;
+    transition: all 0.5s;
+}
+
+.btn-default:hover {
+    background: #71bd46;
+    color: #fff;
+}
+
+h2 {
+    line-height: 20px;
+    margin: 0;
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h4 {
+    color: #666;
+    font-size: 20px;
+}
+
+p {
+    color: #888;
+    line-height: 24px;
+}
+
+.section-title {
+    padding-bottom: 50px;
+}
+
+a {
+    color: #71bd46;
+}
+
+
+/*-------------------------------NAVBAR----------------------------------*/
+
+#nav {
+    padding: 20px;
+}
+
+#nav a.navbar-brand {
+    font-size: 22px;
+    color: #ddd;
+    font-weight: 700;
+}
+
+#nav .navbar-nav > li > a {
+    text-transform: uppercase;
+    color: #bbb;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 15px;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+#nav .navbar-nav > li > a:hover {
+    color: #71bd46;
+}
+
+#nav .navbar-nav li.active > a {
+    color: #71bd46;
+}
+
+.back {
+    background-color: #000;
+    height: 50px;
+}
+
+
+/*-------------------------------HOME----------------------------------*/
+
+#home {
+    background: url(img/header-bg.jpg);
+    background-size: cover;
+        
+}
+
+.intro {
+    padding: 250px 0 200px 0;
+}
+
+.intro h1 {
+    font-size: 60px;
+    color: #eee;
+    font-weight: 600;
+}
+
+.color {
+    color: #71bd46;
+    font-weight: 700;
+}
+
+#home p {
+    color: rgba(255,255,255,0.5);
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 60px;
+    padding: 0 4px;
+}
+
+
+/*-------------------------------ABOUT----------------------------------*/
+
+#about {
+    padding: 100px 0;
+    background-color: #f6f6f6;
+}
+
+hr {
+    height: 2px;
+    width: 60px;
+    background: #71bd46;
+    border: 0;
+    margin: 30px 0 0 0;
+}
+
+.space {
+    margin-top: 40px;
+}
+
+#about h4 {
+    border-bottom: 1px solid #b8dea2;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+
+#about p {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+
+/*-------------------------------SERVICES----------------------------------*/
+
+#services {
+    padding: 100px 0;
+}
+
+#services i.fas {
+    font-size: 36px;
+    color: #71bd46;
+    display: block;
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+
+#services h4 {
+    border-bottom: 1px solid #b8dea2;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+
+
+/*-------------------------------PORTFOLIO----------------------------------*/
+
+#portfolio {
+    padding: 100px 0;
+    background-color: #f6f6f6;
+}
+
+
+/*-------------------------------TEAM----------------------------------*/
+
+#team {
+    padding: 100px 0;
+}
+
+img.team-img {
+    width: 160px;
+    height: 160px;
+    border: 0;
+    margin: 0;
+}
+
+#team h3 {
+    border-top: 1px solid #b8dea2;
+    padding-top: 20px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+/*-------------------------------CONTACT----------------------------------*/
+
+#contact {
+    padding: 100px 0;
+    background-color: #f6f6f6;
+}
+
+#contact i.fas {
+    color: #71bd46;
+    margin-right: 20px;
+}
+
+#contact form {
+    padding: 30px 0;
+}
+
+#contact .form-control {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+#contact .form-control:focus {
+    box-shadow: none;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+#contact .btn {
+    background: transparent;
+    border: 1px solid #71bd46;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: #71bd46;
+    font-size: 16px;
+}
+
+#contact .btn:hover {
+    background: #71bd46;
+    color: #fff;
+}
+
+
+/*-------------------------------SOCIAL----------------------------------*/
+
+#social {
+    padding: 30px 0;
+    background-color: #fff;
+}
+
+#social ul {
+    list-style: none;
+}
+
+#social ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+#social .icons i.fab {
+    font-size: 24px;
+    padding: 4px 5px;
+    color: #71bd46;
+}
+
+#social .icons i.fab:hover {
+    color: #666;
+}
+
+
+/*-------------------------------FOOTER----------------------------------*/
+
+#footer {
+    background-color: #222;
+    color: #777;
+    padding: 15px 0 10px 0;
+}
