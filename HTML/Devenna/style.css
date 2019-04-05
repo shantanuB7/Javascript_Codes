@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/*----------------------------------NAVBAR------------------------*/
+
+.custom-navbar {
+    padding: 10px 0;
+    height: 60px;
+    background: #44494C;
+}
+
+#navbar ul li a.nav-link {
+    padding: 30px 10px;
+    color: #fff;
+}
+
+#navbar li li a {
+    color: #fff;
+    background-color: rgba(0,0,0,0.6);
+}
+
+#navbar ul .dropdown-menu {
+    top: 67px;
+    border-radius: 0;
+    background-color: rgba(0,0,0,0.6);
+    border-color: rgba(0,0,0,0.6);
+    padding: 0;
+}
+
+#navbar ul .dropdown-menu ul a {
+    background-color: rgba(0,0,0,0.6);
+    border-color: rgba(0,0,0,0.6);
+}
+
+.dropdown-item:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+#navbar ul .dropdown-menu .dropdown-menu {
+    top: -1;
+    left: 159;
+}
+
+#navbar ul .dropdown-menu .dropdown-toggle::after {
+    top: 18;
+    left: -2;
+    
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+#navbar ul li > a.active {
+    padding: 30px 10px;
+    color: #ff0000;
+}
+
+nav ul li > a {
+    text-transform: uppercase;
+    font-size: 13px !important;
+    letter-spacing: 0.8px
+}
+
+h3 {
+    color: #000;
+    font-family: 'Raleway';
+    font-weight: 400;
+    margin: 0 0 20px 0;
+}
+
+.dropdown:hover >.dropdown-menu{
+    display: block;
+}
+
+.drop-menu .dropdown-item {
+    
+}
+
+.dropdown-toggle::after {
+    position: absolute;
+    left: -5px;
+    top: 40px;
+}
+
+footer a:hover{
+    color: #fff !important;
+    outline: none;
+    text-decoration: none;
+}
+
+
+/*----------------------------------HEADER------------------------*/
+
+#header {
+    padding: 30px 0;
+}
+
+#header .logo {
+    margin-top: 8px;
+    font-variant: small-caps;
+}
+
+#header .logo * {
+    color: inherit;
+    text-decoration: none;
+}
+
+#header .logo h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+}
+
+.susp,.lobo {
+    margin-right: 50px;
+    font-size: 14px;
+}
+
+#header .susp strong, #header .lobo strong {
+    font-size: 14px;
+}
+
+a {
+    color: #e84c3d;
+    text-decoration: none;
+}
+
+
+/*----------------------------------HEADER-ONE------------------------*/
+
+#header-one {
+    background: url(images/demo/backgrounds/01.png) top center no-repeat;
+    padding: 150px 0;
+    color: #fff;
+}
+
+#header-one .intro-text h2 {
+    margin-bottom: 30px;
+    font-size: 42px;
+}
+
+#header-one .intro-text p {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.btn {
+    color: #fff;
+    background-color: #e84c3d;
+    padding: 15px 25px 17px;
+    text-transform: uppercase;
+    border: 1px solid #e84c3d;
+    border-radius: 0;
+    margin-right: 20px;
+}
+
+.btn-inverse:hover {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.btn-white {
+    background: #fff;
+    color: #e84c3d;
+    border: 1px solid #fff;
+}
+
+.btn-white:hover {
+    background: #e84c3d;
+    color: #fff;
+    border: 1px solid #e84c3d;
+}
+
+
+/*----------------------------------FEATURES------------------------*/
+
+.features {
+    color: #333335;
+    background: #fff;
+}
+
+.section-title {
+    padding: 80px 0;
+}
+
+.section-title .nospace {
+    padding: 0;
+    margin: 0;
+    color: #e84c3d;
+    text-decoration: none;
+}
+
+.section-title p {
+    padding: 0;
+    margin: 0;
+}
+
+.section-title h2 {
+    font-size: 2.8rem;
+}
+
+.icon {
+    margin-bottom: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 36px;
+    text-align: center;
+    border: 1px solid #d7d7d7;
+    vertical-align: middle;
+    line-height: 98px;
+}
+
+.features-wrapper h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.features-wrapper h4 a {
+    text-decoration: none;
+    color: #e84c3d;
+}
+
+.features-wrapper:hover .icon {
+    background-color: #333335;
+    color: #fff;
+}
+
+
+/*----------------------------------SECTION-THREE------------------------*/
+
+#section-three {
+    background: url(images/demo/backgrounds/01.png) top center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#section-three .box {
+    float: left;
+    width: 50%;
+    padding: 8% 4%;
+    background-color: #fff;
+}
+
+.mr {
+    margin: 0 10px 10px 0;
+    padding: 0;
+}
