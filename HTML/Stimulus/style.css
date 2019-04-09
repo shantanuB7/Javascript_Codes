@@ -91,6 +91,11 @@ footer{
     background: #E9724C;
 }
 
+.section-btn:hover {
+    background: #E3AE57;
+    border: 3px solid #E3AE57;
+}
+
 
 
 /*--------------------------------NavBar-----------------------------------------------*/
@@ -242,9 +247,6 @@ h4 {
 
 
 .background-image {
-    
-    background-position: 50% 50%;
-    background-size: cover;
     width: 100%;
     height: 100%;
     min-height: 75vh;
@@ -464,6 +466,13 @@ h4 {
     border-radius: 40px;
     color: #161616;
     padding-bottom: 10px;
+    transition: all .4s ease-in-out;
+}
+
+#contact input[type = "submit"]:hover {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
 }
 
 #contact .contact-form {
@@ -477,8 +486,6 @@ h4 {
 }
 
 .contact-img {
-    background-position: 50% 50% !important;
-    background-size: cover !important;
     width: 100%;
     height: 100%;
     min-height: 75vh;
@@ -530,6 +537,11 @@ footer {
     vertical-align: middle;
     position: relative;
     margin: 22px 4px 10px 4px;
+}
+
+.social-icon li a:hover {
+    background: #E3AE57;
+    color: #fff;
 }
 
 
