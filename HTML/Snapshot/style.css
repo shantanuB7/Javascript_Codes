@@ -236,6 +236,56 @@ a:hover,a:active {
     }
 }
 
+#about .carousel-item img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 10% 0 0 14%;
+}
+#about .carousel-indicators{
+	bottom: -60px;
+}
+#about .carousel-indicators li{
+	width: 20px;
+	height: 6px;
+	background-color: #333;
+}
+#about .card-title{
+	color: #e44c65;
+    text-align: center;
+    padding: 30px 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 20px;
+}
+#about .card .description{
+	visibility: hidden;
+	color: #fff;
+	text-align: center;
+}
+#about .card:hover .description{
+	visibility: visible;
+}
+#about .carousel{
+	padding-top: 7%;
+}
+#about .card{
+	width: 100%;
+	height: 400px;
+	-webkit-transition-property: margin-top;
+	-webkit-transition-duration: 2s;
+	transition-property: margin-top;
+	transition-duration: 2s;
+	margin: 20% 0;
+}
+#about .card:hover img{
+	margin-top: -20%;
+	transition: 1s ease;
+}
+#about .card:hover {
+    background: #304352;
+}
+
 
 /*----------------------------------------GALlERY------------------------------------------------------*/
 
@@ -455,7 +505,7 @@ footer ul li{
     background: #fff;
     bottom: 32px;
     right: 32px;
-    font-size: 26px;
+    font-size: 36px;
     width: 40px;
     height: 40px;
     line-height: 35px;

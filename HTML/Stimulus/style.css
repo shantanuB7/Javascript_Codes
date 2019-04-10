@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    transition: all .4s ease-in-out;
 }
 
 html {
@@ -26,7 +27,6 @@ body {
 }
 
 .container-fluid {
-    width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -96,6 +96,14 @@ footer{
     border: 3px solid #E3AE57;
 }
 
+a:hover {
+    color: #e3ae57;
+}
+
+.pr-0 {
+    padding-right: 0;
+}
+
 
 
 /*--------------------------------NavBar-----------------------------------------------*/
@@ -149,6 +157,10 @@ footer{
     transition: all 0.4s ease-in-out;   
 }
 
+.custom-navbar .nav li a:hover {
+    color: #e3ae57;
+}
+
 /*--------------------------------HOME-----------------------------------------------*/
 
 .sect {
@@ -170,11 +182,10 @@ footer{
 }
 
 #home .home-img {
-    
-    background-attachment: fixed;
+    background: url(images/home-img.jpg);
     width: 100%;
     background-position: 50% 50%;
-    height: 100vh;
+    height: 100%;
 }
 
 
@@ -247,9 +258,11 @@ h4 {
 
 
 .background-image {
+    background: url(images/about-img.jpg) 50% 50%;
+    background-size: cover;
     width: 100%;
     height: 100%;
-    min-height: 75vh;
+    min-height: 100%;
     position: absolute;
     top: 0;
     right: 0;
@@ -259,6 +272,7 @@ h4 {
 
 .bg-yellow {
     background: #E3AE57;
+    padding: 0;
 }
 
 
@@ -329,11 +343,10 @@ h4 {
 /*--------------------------------EXPERIENCE-----------------------------------------------*/
 
 .experience-img {
-    background-position: 50% 50%;
+    background: url(images/experience-img.jpg) 50% 50%;
     background-size: cover;
     width: 100%;
     height: 100%;
-/*    min-height: 75vh;*/
     position: absolute;
     top: 0;
     right: 0;
@@ -391,11 +404,10 @@ h4 {
 }
 
 .education-img {
-    background-position: 50% 50% ! important;
+    background: url(images/education-img.jpg) 50% 50%;
     background-size: cover !important;
     width: 100%;
     height: 100%;
-/*    min-height: 75vh;*/
     position: absolute;
     top: 0;
     right: 0;
@@ -486,9 +498,11 @@ h4 {
 }
 
 .contact-img {
+    background: url(images/contact-img.jpg) 50% 50%;
+    background-size: cover;
     width: 100%;
     height: 100%;
-    min-height: 75vh;
+    min-height: 100%;
     position: absolute;
     top: 0;
     right: 0;
