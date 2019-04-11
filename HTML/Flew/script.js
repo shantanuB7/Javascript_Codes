@@ -10,3 +10,5 @@ $(function(){
             $("#price").load("price.html");
 
             });
+
+$('.carousel').carousel()

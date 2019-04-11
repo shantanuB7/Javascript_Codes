@@ -95,7 +95,7 @@ a.navbar-brand.logo {
 
 @media (max-width:768px) {
     a.navbar-brand.logo {
-        top: -78px;
+        top: -78px !important;
         width: 35%;
     }
 }

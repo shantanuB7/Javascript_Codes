@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    transition: all .3s cubic-beizer;
 }
 
 html {
@@ -57,8 +58,29 @@ a:hover {
     font-weight: 600;
     color: #fff;
     line-height: 55px;
-    padding: 20px;
+    padding: 20px !important;
     text-transform: uppercase;
+}
+
+.navbar li.active  .nav-link span {
+    visibility: visible;
+}
+
+.navbar .nav-link-hover {
+    width: 9px;
+    font-size: 23px;
+    height: 2px;
+    color: #17bed2;
+    padding-right: 8px;
+    visibility: hidden;
+}
+
+.navbar-expand-md .navbar-nav .nav-link:hover .nav-link-hover {
+    visibility: visible;
+}
+
+.navbar-expand-md .navbar-nav li.active .nav-link  .nav-link-hover {
+    visibility: visible;
 }
 
 .logo-dark {
@@ -90,6 +112,7 @@ a:hover {
     font-size: 70px;
     color: #fff;
     line-height: 1;
+    font-weight: 700;
 }
 
 .title-wrapper .title-designation {
@@ -287,4 +310,19 @@ a:hover {
 
 .ft-700 {
     font-weight: 700;
+}
+
+.back-2-top {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background: #515769;
+    padding: 5px;
+    padding-top: 10px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
 }

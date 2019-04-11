@@ -121,6 +121,23 @@ h3 {
     color: #fff;
 }
 
+.img-slide {
+    width: 100%;
+    float: left;
+    margin-right: -100%;
+    position: relative;
+    opacity: 1;
+    display: block;
+    transition: opacity 0.6s ease 0s;
+    z-index: 2;
+    height: 984px;
+    min-height: 700px;
+}
+
+.img-slid1 {
+    background-image: url(images/slide_1.jpg) center center no-repeat;
+}
+
 
 /*----------------------------------------HEADER-------------------------------------------------*/
 
@@ -135,6 +152,55 @@ h3 {
     font-weight: 400;
     color: #fff;
     margin: 0 0 30px 0;
+}
+
+@media screen and (max-width:768px) {
+    .carousel-caption h2 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    blockquote.testimony {
+        width: 100%;
+    }
+}
+
+.carousel-indicator {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.carousel-indicator li{
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.2);
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    transition: opacity .6s ease;
+    border-radius: 50%;
+}
+
+.carousel-indicator li.active {
+    background-color: #fff;
 }
 
 #head .carousel-inner img {
@@ -286,6 +352,26 @@ h3 {
     height: 120px;
     border-radius: 50%;
     margin-bottom: 20px;
+}
+
+.carousel-indicators {
+    bottom: -71px;
+}
+
+.carousel-indicators li {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background-color: #e6e6e6;
+    margin-top: 30px;
+}
+
+.carousel-indicators li.active {
+    background: transparent;
+    border: 2px solid #27e1ce;
+    margin-top: 37px;
 }
 
 blockquote {
