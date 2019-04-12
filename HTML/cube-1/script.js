@@ -31,3 +31,14 @@ $('.owl-carousel').owlCarousel({
 $(document).ready(function(){
   $(".owl-carousel").owlCarousel();
 });
+
+
+jQuery(function($){
+    var loc = window.location.pathname;
+
+       $('.navbar ul li').find('a').each(function() {
+         $(this).toggleClass('active', $(this).attr('href') == loc);
+           console.log($(this).attr('href'),loc)
+      });
+})
+    

@@ -509,3 +509,38 @@ img.team-img {
     color: #777;
     padding: 15px 0 10px 0;
 }
+
+
+.fade-scale {
+  transform: scale(0);
+  opacity: 0;
+  -webkit-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  transition: all .25s linear;
+}
+
+.fade-scale.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-dialog {
+    max-width: 39%;
+}
+
+.modal-footer .btn-default {
+    border-radius: 50%;
+    background: #e7e7e7;
+    color: #fff;
+    border-color: #e7e7e7;
+}
+
+.modal-open .modal {
+    overflow-y: hidden;
+}
+
+@media screen and (max-width:768px) {
+    .modal-body img {
+        height: 310px !important;
+    }
+}
