@@ -714,3 +714,8 @@ blockquote p {
 .price-box.popular .price {
     color: #27e1ce !important;
 }
+
+.btn-primary {
+    background-color: #27e1ce;
+    border-color: #27e1ce;
+}

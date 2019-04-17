@@ -62,7 +62,7 @@ a:hover {
     text-transform: uppercase;
 }
 
-.navbar li.active  .nav-link span {
+.navbar li a.active span {
     visibility: visible;
 }
 
@@ -266,7 +266,6 @@ a:hover {
 
 .modal-content {
     padding: 30px;
-    width: 730px;
 }
 
 .modal-left {
@@ -282,13 +281,18 @@ a:hover {
 }
 
 .modal-overlay {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow-x: hidden;
-    background: rgba(81,87,105,.4)
+    background: #000;
+    opacity: 0;
 }
 
-.work-img-wrapper:hover img {
-  opacity: 0.6;
+.work-img-wrapper:hover .modal-overlay {
+  opacity: 0.5;
 }
 
 

@@ -17,6 +17,8 @@ body {
 }
 .navbar-nav li a{
 	color: #3ac1bc;
+    font-size: 13px;
+    letter-spacing: 0.05;
 }
 
 .navbar-nav li a.active {
@@ -40,7 +42,7 @@ body {
 	background-color: #36ADBD;
 	width: 100%;
 	height: 100%;
-	min-height: 120vh;
+	min-height: 140vh;
 	padding-top: 16%;
 }
 
@@ -573,4 +575,30 @@ a.input-group-text {
 	.client img {
 		padding: 3% 32%;
 	}
+}
+
+
+
+/*---------------------------------------------------MODAL------------------------------------------*/
+
+.modal{
+	top: 60px;
+}
+.modal-content{
+	border-radius: 0;
+	background-color: #000;
+}
+.close{
+    opacity: 0.5;
+    color: #fff;
+    position: absolute;
+    top: -25px;
+    left: auto;
+    right: 0;
+    border: 0;
+    font-size: 24px;
+}
+.close:hover{
+	opacity: 1;
+	color: #fff;
 }

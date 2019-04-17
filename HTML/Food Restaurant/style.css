@@ -110,6 +110,10 @@ a.navbar-brand.logo {
     padding-left: 15px;
 }
 
+.navbar .navbar-nav li a.active {
+    color: #e7a331;
+}
+
 .menu-bar li a.booking {
     border: 1px solid #fff;
     border-radius: 3px;

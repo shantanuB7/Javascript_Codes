@@ -102,7 +102,7 @@ ol.type li a {
     color: #71bd46;
 }
 
-#nav .navbar-nav li.active > a {
+#nav .navbar-nav li > a.active {
     color: #71bd46;
 }
 
